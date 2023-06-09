@@ -1,0 +1,29 @@
+---
+title: "Milo Rainleaf"
+author: "skamkam"
+date: "2023-06-09"
+output: html_document
+---
+
+\setlength\parindent{25pt}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
+library(tidyverse)
+library(knitr)
+library(hash)
+```
+
+# Character Sheet
+
+```{r} 
+Ability <- c("STR", "DEX", "CON", "INT", "WIS", "CHA")
+Stat <- c(10, 11, 8, 15, 13, 18)
+Modifier <- c("+0", "+0", "-1", "+3", "+2", "+4")
+
+charsheet <- data.frame(Ability, Stat, Modifier)
+
+kable(charsheet)
+
+```
+
+
