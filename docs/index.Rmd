@@ -1,6 +1,5 @@
 ---
 title: "Milo Rainleaf"
-author: "skamkam"
 output:
   html_document:
     css: "style.css"
@@ -36,7 +35,6 @@ spell_creation <- function(cast, range, comp, duration, attack, effect) {
 }
 ```
 
-
 # Character Sheet
 
 ```{r} 
@@ -57,6 +55,7 @@ kable(charsheet) %>%
   column_spec(1, bold=T)
 
 ```
+
 
 ***
 
@@ -341,3 +340,195 @@ When you cast a spell that has a range of 5 feet or greater, you can spend 1 sor
 When you cast a spell that has a range of touch, you can spend 1 sorcery point to make the range of the spell 30 feet.
 
 
+# Current Equipment {.tabset}
+
+### Weapons
+
+- Longbow from Quill (5/8/21)
+- 2 bronze daggers (unoxidized)
+- Arcane focus and weapon: bronze quarterstaff, partially oxidized (1d6; versatile 1d8, aka if 2 hand attack)
+
+### Travel
+
+- explorer’s pack:
+    + duffel bag
+    + bedroll
+    + mess kit
+    + tinderbox
+    + 10 torches
+    + 10 days rations
+    + waterskin
+    + 50 ft hempen rope
+
+#### Food/Medicine
+
+- 10 new bread rolls
+- Huge bottle of fantasy tropicana orange juice
+- little bottle of painkiller elixir
+
+### Personal
+
+- trinket: shard of obsidian that’s always warm
+- last letter sent from Astera, a month before I returned and she was gone
+- book keeping receipts of jobs done in the past
+- spare set of common clothes (similar design to current)
+- pouch containing 239 gold pieces + 95 copper pieces
+
+
+# Background
+
+![](art/milorainleaf.png){height=4in}
+
+**Race**: [Halfling](https://www.dndbeyond.com/races/halfling)
+
+**Class**: [Sorceror](https://www.dndbeyond.com/classes/sorcerer) (copper draconic bloodline, acidic)
+
+Milo is a 24-year old halfling from **Three Peppers**, a small community in southeast Tarrin that specialized in soybean and rice production. He was the first one in town to show signs of a draconic bloodline in many years. As a copper dragon-based sorceror (acid), his powers were not particularly helpful to the town, so he was mostly left alone; the area has a history of draconic-lineage sorcerors, and there was little discrimination.
+
+Milo grew up working on the farm, attending the local village school, and picking up the basics of self defense with a **quarterstaff**, which she now carries. As she got older, she developed an interest in her family history; she spent a lot of time digging through old books and diaries in the attic, and the local library, trying to figure out her draconic heritage. Her younger sister, Astera, was a precocious kid and would often accompany her up to the attic, sharing roast beef sandwiches in the dusty space.
+
+Astera herself also displayed some dragon scaling, but as it wasn't the distinctive markers of "useful" powers (such as fire/cold control), she too was left alone. She was more interested in the artifacts in the attic; she discovered a **trinket**, a shard of obsidian that's always warm, which gave Milo very bad vibes but which she kept.
+
+When Astera was 15, Milo 19, the villagers found her experimenting with her magic in the fields, realizing that her green scale pattern indicated poison-based powers, and that she had poisoned several fields of crops. It's questionable whether or not this was intentional on her part. Regardless, they demanded she be banished, at least until she learned to control her powers, so Milo took her to a sorcerors' boarding school in Wellspring, called **The Sanshi School of Sorcerors**, with headmistress **Ban Zhao (Venerable Madame Cao)**. Before Milo left, she gave them the obsidian to keep safe.
+
+Milo signed a five-year contract with the **East India Long Haul Trucker Group, Inc.**, looking to make some money to put her through boarding school and support their parents back at home. He visits her at school several times, and she seems to be flourishing. While on his contract, Milo befriended several people across different towns.
+
+Three years after Astera started boarding school, Milo went to visit her, as they were between gigs, and discovered that the entire school had disappeared. There was a new building in a more modern architectural style where the school had been, and upon questioning locals and local authorities, no one else could remember the school.
+
+Milo decides that their parents *cannot* know what has happened to Astera (while she was ostensibly under his watch) and embarks on a journey to collect more information about Astera's school's disappearance, worried and distraught. He tells their parents that she is doing well at school but can't visit home because of her busy curriculum. Milo feels guilty, both for losing Astera and for misleading their parents, but worries that the shock will do great damage against their failing health.
+
+She spends a month searching for any leads, and finds nothing. She returns to her job and continues asking around in the towns the job takes her; she still has two contracted years to finish.
+
+The campaign starts near the end of Milo's contract, when she's 24. She has not found any real leads yet.
+
+## Relationships {.tabset}
+
+### Thunder
+
+![](art/thunder.png){height=3in}
+
+```{r}
+r1 <- c("Age", "Race", "Class", "Role", "Status")
+r2 <- c("12 (adult)", "Kenku", "Fighter of some sort?", "Bodyguard", "Friend")
+kable(data.frame(r1, r2), col.names=NULL) %>% 
+  kable_styling() %>% 
+  column_spec(1, bold=T)
+```
+
+Good fellow. Doesn't talk much, but would definitely have Milo's back. Pretty insightful.
+
+### Rose (Oracle)
+
+![](art/rose.jpg){height=3in}
+
+```{r}
+r1 <- c("Age", "Race", "Class", "Role", "Status")
+r2 <- c("16", "Elf", "Cleric", "High Priestess (Oracle)", "Friend")
+kable(data.frame(r1, r2), col.names=NULL) %>% 
+  kable_styling() %>% 
+  column_spec(1, bold=T)
+```
+
+Milo's person-to-be-escorted/bodyguarded. Milo trusts her, does not think she has ill intent, but does think she is beholden to higher powers that may have ill intent. Thinks her crush on Atticus is funny, and teases her about it.
+
+### Ukirian Isildir
+
+![](art/ukirianisildir.jpg){height=3in}
+
+```{r}
+r1 <- c("Age", "Race", "Class", "Role", "Status")
+r2 <- c("Dad", "Elf", "??? Has a demon. Sucks blood", "Bodyguard", "Colleague")
+kable(data.frame(r1, r2), col.names=NULL) %>% 
+  kable_styling() %>% 
+  column_spec(1, bold=T)
+```
+
+Milo trusts Ukirian to have his back, mostly, but there is something secret Ukirian is holding back. Like, he would have Milo's back, unless something came up, and what is the something?
+
+Also the whole incident with the very weird stabbing situation. Something was off there.
+
+### Geehee Smoolar
+
+![](art/geeheesmoolar.jpg){height=3in}
+
+```{r}
+r1 <- c("Age", "Race", "Class", "Role", "Status")
+r2 <- c("20", "Dwarf? Halfling? Lil guy", "Bard (?)", "Bodyguard", "Friend")
+kable(data.frame(r1, r2), col.names=NULL) %>% 
+  kable_styling() %>% 
+  column_spec(1, bold=T)
+```
+
+He's just a little guy. Milo thinks he's a little too trusting but likes having him around.
+
+**Furgle**: Beloved goat. Eats Milo's bread rolls.
+
+### Atticus
+
+![](art/atticus.jpg){height=3in}
+
+```{r}
+r1 <- c("Age", "Race", "Class", "Role", "Status")
+r2 <- c("17", "Teen boy", "??", "King of the Southern Isles", "Higher-up")
+kable(data.frame(r1, r2), col.names=NULL) %>% 
+  kable_styling() %>% 
+  column_spec(1, bold=T)
+```
+
+King of the Southern Isles, on the verge of being ousted? Like 17 years old. Dude, someone get this guy a non-evil vizier so he can catch a break. Milo trusts him but thinks he needs a lot more support in his role; trusts him as a person but not necessarily as a king.
+
+### Others
+
+**Astera Rainleaf**
+
+Milo's younger sister. Loving relationship, though she's been missing for almost two years. Presumed alive, based on Leaf's intel.
+
+***
+
+**Queen Blanche**
+
+Go off girl! Milo thinks she is the most adept (of the available options) to be the next high ruler or whatever. Committed voter fraud in her name.
+
+***
+
+**Captain Thorne**
+
+![](art/captainthorne.jpg){height=2in}
+
+Hot.
+
+***
+
+**Leaf (Astera's acquaintance)**
+
+Gnome. Charm Person'ed him once while he was trying to attack us, or Atticus, or something. He knows something about Astera but questioning was mostly futile, except the confirmation that she was out there somewhat recently, still kicking. Question him further.
+
+***
+
+**Literally any of the Oracle's ~~keepers~~ priests/priestesses**
+
+THOSE GUYS SUCK! Well Orym can have a pass. I guess.
+
+***
+
+**Anarchy (inn/stable keeper)**
+
+Inn/stable owner in Queenstown; a strong believer in anarchy, wiry and witty, I've stopped at their place for rest stops.
+
+The campaign stopped here when visiting Queenstown.
+
+***
+
+**Serena (tavern owner)**
+
+Tavern owner in Leeside, big-boned woman who makes killer shepherd’s pie and will freely discuss history/culture over a meal.
+
+***
+
+**Peder (store owner)**
+
+Store owner on outskirts of Sonis, brusquely efficient, good prices for quality goods, did him a favor delivering something for free once so he owes me a small favor.
+
+
+
+### Hide {- .active}
