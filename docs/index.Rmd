@@ -14,6 +14,23 @@ library(hash)
 library(kableExtra)
 ```
 
+```{r}
+# build a function that creates spell dataframes
+spell_creation <- function(cast, range, comp, duration, attack, effect) {
+  castc <- c(cast)
+  rangec <- c(range)
+  compc <- c(comp)
+  durationc <- c(duration)
+  attackc <- c(attack)
+  effectc <- c(effect)
+  
+  spell <- data.frame(castc, rangec, compc, durationc, attackc, effectc) %>% 
+    rename("Casting Time" = castc, "Range/Area" = rangec, "Components" = compc,
+           "Duration" = durationc, "Attack/Save" = attackc, "Damage/Effect" = effectc)
+  return(spell)
+}
+```
+
 # Character Sheet
 
 ```{r} 
@@ -47,15 +64,17 @@ kable(charsheet) %>%
 
 - Double proficiency bonus if performing a CHA check with dragons
 
-**Perception check**: d20 + WIS modifier
-
-**Initiative**: d20 + DEX modifier
-
 **Saving throws**: CON, CHA
 
 **Armor class**: 13 without armor (dragon scales)
 
 - Dodge: DEX modifier + armor deflect
+
+***
+
+**Perception check**: d20 + WIS modifier
+
+**Initiative**: d20 + DEX modifier
 
 ## Skills
 - Religion [INT]
@@ -81,20 +100,103 @@ Fluent in Common, Halfling, Draconic languages
 
 ## Cantrips {.tabset}
 
+### Prestidigitation
+
+```{r}
+# Prestidigitation table format
+cast <- c("1 Action")
+range <- c("10 ft")
+Components <- c("V, S")
+Duration <- c ("1 Hour")
+atk <- c("None")
+effect <- c("Utility")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+This spell is a minor magical trick that novice spellcasters use for practice. You create one of the following magical effects within range:
+
+- You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor.
+- You instantaneously light or snuff out a candle, a torch, or a small campfire.
+- You instantaneously clean or soil an object no larger than 1 cubic foot.
+- You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.
+- You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.
+- You create a nonmagical trinket or an illusory image that can fit in your hand and that lasts until the end of your next turn.
+
+If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action.
+
+
+### Light
+
+```{r}
+# Light cantrip table format
+cast <- c("1 Action")
+range <- c("Touch (20-ft sphere)")
+Components <- c("V, M*")
+Duration <- c ("1 Hour")
+atk <- c("DEX Save")
+effect <- c("Creation")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+You touch one object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. Completely covering the object with something opaque blocks the light. The spell ends if you cast it again or dismiss it as an action.
+
+If you target an object held or worn by a hostile creature, that creature must succeed on a Dexterity saving throw to avoid the spell.
+
+* - *a firefly or phosphorescent moss*
+
+### Mold Earth
+
+```{r}
+# mold earth cantrip table format
+cast <- c("1 Action")
+range <- c("30 ft (5 ft cube)")
+Components <- c("S")
+Duration <- c ("Instantaneous")
+atk <- c("None")
+effect <- c("Control")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+You choose a portion of dirt or stone that you can see within range and that fits within a 5-foot cube. You manipulate it in one of the following ways:
+
+- If you target an area of loose earth, you can instantaneously excavate it, move it along the ground, and deposit it up to 5 feet away. This movement doesn’t have enough force to cause damage.
+- You cause shapes, colors, or both to appear on the dirt or stone, spelling out words, creating images, or shaping patterns. The changes last for 1 hour.
+- If the dirt or stone you target is on the ground, you cause it to become difficult terrain. Alternatively, you can cause the ground to become normal terrain if it is already difficult terrain. This change lasts for 1 hour.
+
+If you cast this spell multiple times, you can have no more than two of its non-instantaneous effects active at a time, and you can dismiss such an effect as an action.
+
+
 ### Acid Splash
 
 ```{r}
+# Acid splash table format
 cast <- c("1 Action")
 range <- c("60 ft")
 Components <- c("V, S")
 Duration <- c ("Instantaneous")
-atk <- c("DEX save")
+atk <- c("DEX Save")
 effect <- c("Acid")
 
-acid_splash <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
   rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
 
-kable(acid_splash)
+kable(spell) %>% 
+  kable_styling()
 ```
 
 You hurl a bubble of acid. Choose one or two creatures you can see within range. If you choose two, they must be within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.
@@ -102,11 +204,196 @@ You hurl a bubble of acid. Choose one or two creatures you can see within range.
 This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
 
 
-### Mending
-
-### Light
-
-### Control Flames
 
 ### Poison Spray
+
+```{r}
+# poison spray cantrip table format
+cast <- c("1 Action")
+range <- c("10 ft")
+Components <- c("V, S")
+Duration <- c ("Instantaneous")
+atk <- c("CON Save")
+effect <- c("Poison")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+You extend your hand toward a creature you can see within range and project a puff of noxious gas from your palm. The creature must succeed on a Constitution saving throw or take 1d12 poison damage.
+
+This spell's damage increases by 1d12 when you reach 5th level (2d12), 11th level (3d12), and 17th level (4d12).
+
+
+## Level 1 {.tabset}
+
+### Mage Armor
+
+```{r}
+# mage armor table format
+cast <- c("1 Action")
+range <- c("Touch")
+Components <- c("V, S, M*")
+Duration <- c ("8 Hours")
+atk <- c("None")
+effect <- c("Buff")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor or if you dismiss the spell as an action.
+
+* - *a piece of cured leather*
+
+### Thunderwave
+
+
+```{r}
+# mage armor table format
+cast <- c("1 Action")
+range <- c("Self (15 ft cube)")
+Components <- c("V, S")
+Duration <- c ("Instantaneous")
+atk <- c("CON Save")
+effect <- c("Thunder")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed.
+
+In addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell's effect, and the spell emits a thunderous boom audible out to 300 feet.
+
+**At Higher Levels**. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.
+
+### Charm Person
+
+```{r}
+cast <- c("1 Action")
+range <- c("30 ft")
+Components <- c("V, S")
+Duration <- c ("1 Hour")
+atk <- c("WIS Save")
+effect <- c("Charmed")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+You attempt to charm a humanoid you can see within range. It must make a Wisdom saving throw, and does so with advantage if you or your companions are fighting it. If it fails the saving throw, it is charmed by you until the spell ends or until you or your companions do anything harmful to it. The charmed creature regards you as a friendly acquaintance. When the spell ends, the creature knows it was charmed by you.
+
+**At Higher Levels**. When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.
+
+## Level 2 {.tabset}
+
+### Scorching Ray
+
+```{r}
+cast <- c("1 Action")
+range <- c("120 ft")
+Components <- c("V, S")
+Duration <- c ("Instantaneous")
+atk <- c("Ranged")
+effect <- c("Fire")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+You create three rays of fire and hurl them at targets within range. You can hurl them at one target or several.
+
+Make a ranged spell attack for each ray. On a hit, the target takes 2d6 fire damage.
+
+**At Higher Levels**. When you cast this spell using a spell slot of 3rd level or higher, you create one additional ray for each slot level above 2nd.
+
+### Detect Thoughts
+
+```{r}
+cast <- c("1 Action")
+range <- c("Self")
+Components <- c("V, S, M*")
+Duration <- c ("1 Minute")
+atk <- c("WIS Save")
+effect <- c("Detection")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+For the duration, you can read the thoughts of certain creatures. When you cast the spell and as your action on each turn until the spell ends, you can focus your mind on any one creature that you can see within 30 feet of you. If the creature you choose has an Intelligence of 3 or lower or doesn’t speak any language, the creature is unaffected.
+
+You initially learn the surface thoughts of the creature—what is most on its mind in that moment. As an action, you can either shift your attention to another creature’s thoughts or attempt to probe deeper into the same creature’s mind. If you probe deeper, the target must make a Wisdom saving throw. If it fails, you gain insight into its reasoning (if any), its emotional state, and something that looms large in its mind (such as something it worries over, loves, or hates). If it succeeds, the spell ends. Either way, the target knows that you are probing into its mind, and unless you shift your attention to another creature’s thoughts, the creature can use its action on its turn to make an Intelligence check contested by your Intelligence check; if it succeeds, the spell ends.
+
+Questions verbally directed at the target creature naturally shape the course of its thoughts, so this spell is particularly effective as part of an interrogation.
+
+You can also use this spell to detect the presence of thinking creatures you can’t see. When you cast the spell or as your action during the duration, you can search for thoughts within 30 feet of you. The spell can penetrate barriers, but 2 feet of rock, 2 inches of any metal other than lead, or a thin sheet of lead blocks you. You can’t detect a creature with an Intelligence of 3 or lower or one that doesn’t speak any language.
+
+Once you detect the presence of a creature in this way, you can read its thoughts for the rest of the duration as described above, even if you can’t see it, but it must still be within range.
+
+* - *a copper piece*
+
+## Level 3 {.tabset}
+
+### Erupting Earth
+
+```{r}
+cast <- c("1 Action")
+range <- c("120 ft (20 ft cube)")
+Components <- c("V, S, M*")
+Duration <- c ("Instantaneous")
+atk <- c("DEX Save")
+effect <- c("Bludgeoning")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes 3d12 bludgeoning damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand.
+
+**At Higher Levels**. When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d12 for each slot level above 3rd.
+
+* - *a piece of obsidian*
+
+### Dispel Magic
+```{r}
+cast <- c("1 Action")
+range <- c("120 ft")
+Components <- c("V, S")
+Duration <- c ("Instantaneous")
+atk <- c("None")
+effect <- c("Control")
+
+spell <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(spell) %>% 
+  kable_styling()
+```
+
+Choose one creature, object, or magical effect within range. Any spell of 3rd level or lower on the target ends. For each spell of 4th level or higher on the target, make an ability check using your spellcasting ability. The DC equals 10 + the spell's level. On a successful check, the spell ends.
+
+**At Higher Levels**. When you cast this spell using a spell slot of 4th level or higher, you automatically end the effects of a spell on the target if the spell's level is equal to or less than the level of the spell slot you used.
 
