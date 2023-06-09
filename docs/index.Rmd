@@ -79,5 +79,34 @@ Fluent in Common, Halfling, Draconic languages
 
 # Spells
 
-## Cantrips
+## Cantrips {.tabset}
+
+### Acid Splash
+
+```{r}
+cast <- c("1 Action")
+range <- c("60 ft")
+Components <- c("V, S")
+Duration <- c ("Instantaneous")
+atk <- c("DEX save")
+effect <- c("Acid")
+
+acid_splash <- data.frame(cast, range, Components, Duration, atk, effect) %>% 
+  rename("Casting Time" = cast, "Range/Area" = range, "Attack/Save" = atk, "Damage/Effect" = effect)
+
+kable(acid_splash)
+```
+
+You hurl a bubble of acid. Choose one or two creatures you can see within range. If you choose two, they must be within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.
+
+This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
+
+
+### Mending
+
+### Light
+
+### Control Flames
+
+### Poison Spray
 
