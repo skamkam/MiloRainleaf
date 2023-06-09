@@ -340,7 +340,7 @@ When you cast a spell that has a range of 5 feet or greater, you can spend 1 sor
 When you cast a spell that has a range of touch, you can spend 1 sorcery point to make the range of the spell 30 feet.
 
 
-# Current Equipment {.tabset}
+# Current Equipment
 
 ### Weapons
 
@@ -374,6 +374,7 @@ When you cast a spell that has a range of touch, you can spend 1 sorcery point t
 - spare set of common clothes (similar design to current)
 - pouch containing 239 gold pieces + 95 copper pieces
 
+***
 
 # Background
 
@@ -403,20 +404,6 @@ The campaign starts near the end of Milo's contract, when she's 24. She has not 
 
 ## Relationships {.tabset}
 
-### Thunder
-
-![](art/thunder.png){height=3in}
-
-```{r}
-r1 <- c("Age", "Race", "Class", "Role", "Status")
-r2 <- c("12 (adult)", "Kenku", "Fighter of some sort?", "Bodyguard", "Friend")
-kable(data.frame(r1, r2), col.names=NULL) %>% 
-  kable_styling() %>% 
-  column_spec(1, bold=T)
-```
-
-Good fellow. Doesn't talk much, but would definitely have Milo's back. Pretty insightful.
-
 ### Rose (Oracle)
 
 ![](art/rose.jpg){height=3in}
@@ -430,6 +417,20 @@ kable(data.frame(r1, r2), col.names=NULL) %>%
 ```
 
 Milo's person-to-be-escorted/bodyguarded. Milo trusts her, does not think she has ill intent, but does think she is beholden to higher powers that may have ill intent. Thinks her crush on Atticus is funny, and teases her about it.
+
+### Thunder
+
+![](art/thunder.png){height=3in}
+
+```{r}
+r1 <- c("Age", "Race", "Class", "Role", "Status")
+r2 <- c("12 (adult)", "Kenku", "Fighter of some sort?", "Bodyguard", "Friend")
+kable(data.frame(r1, r2), col.names=NULL) %>% 
+  kable_styling() %>% 
+  column_spec(1, bold=T)
+```
+
+Good fellow. Doesn't talk much, but would definitely have Milo's back.
 
 ### Ukirian Isildir
 
@@ -475,13 +476,19 @@ kable(data.frame(r1, r2), col.names=NULL) %>%
   column_spec(1, bold=T)
 ```
 
-King of the Southern Isles, on the verge of being ousted? Like 17 years old. Dude, someone get this guy a non-evil vizier so he can catch a break. Milo trusts him but thinks he needs a lot more support in his role; trusts him as a person but not necessarily as a king.
+King of the Southern Isles, on the verge of being ousted? Like 17 years old. Dude, someone get this guy a non-evil vizier so he can catch a break. Milo trusts him as a person but not necessarily as a king. Thinks his crush on Rose is funny, but is too intimidated by his status to tease him about it.
 
 ### Others
 
 **Astera Rainleaf**
 
 Milo's younger sister. Loving relationship, though she's been missing for almost two years. Presumed alive, based on Leaf's intel.
+
+***
+
+**Leaf (Astera's acquaintance)**
+
+Gnome. Charm Person'ed him once while he was trying to attack us, or Atticus, or something. He knows something about Astera but questioning was mostly futile, except the confirmation that she was out there somewhat recently, still kicking. Question him further.
 
 ***
 
@@ -496,12 +503,6 @@ Go off girl! Milo thinks she is the most adept (of the available options) to be 
 ![](art/captainthorne.jpg){height=2in}
 
 Hot.
-
-***
-
-**Leaf (Astera's acquaintance)**
-
-Gnome. Charm Person'ed him once while he was trying to attack us, or Atticus, or something. He knows something about Astera but questioning was mostly futile, except the confirmation that she was out there somewhat recently, still kicking. Question him further.
 
 ***
 
@@ -528,7 +529,3 @@ Tavern owner in Leeside, big-boned woman who makes killer shepherd’s pie and w
 **Peder (store owner)**
 
 Store owner on outskirts of Sonis, brusquely efficient, good prices for quality goods, did him a favor delivering something for free once so he owes me a small favor.
-
-
-
-### Hide {- .active}
