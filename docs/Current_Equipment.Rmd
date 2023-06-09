@@ -15,15 +15,15 @@ output:
 ## Travel
 
 - trinket: shard of obsidian that’s always warm
-- explorer’s pack
-+ duffel bag
-+ bedroll
-+ mess kit
-+ tinderbox
-+ 10 torches
-+ 10 days rations
-+ waterskin
-+ 50 ft hempen rope
+- explorer’s pack:
+    + duffel bag
+    + bedroll
+    + mess kit
+    + tinderbox
+    + 10 torches
+    + 10 days rations
+    + waterskin
+    + 50 ft hempen rope
 
 
 ### Food/Medicine

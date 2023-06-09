@@ -1,5 +1,5 @@
 ---
-title: "Milo Rainleaf Character Sheet"
+title: "Milo Rainleaf"
 author: "skamkam"
 output:
   html_document:
@@ -36,7 +36,8 @@ spell_creation <- function(cast, range, comp, duration, attack, effect) {
 }
 ```
 
-# Ability Scores
+
+# Character Sheet
 
 ```{r} 
 # build the character sheet dataframe and display it
