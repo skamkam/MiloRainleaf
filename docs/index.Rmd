@@ -11,19 +11,73 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE)
 library(tidyverse)
 library(knitr)
 library(hash)
+library(kableExtra)
 ```
 
 # Character Sheet
 
 ```{r} 
-Ability <- c("STR", "DEX", "CON", "INT", "WIS", "CHA")
-Stat <- c(10, 11, 8, 15, 13, 18)
-Modifier <- c("+0", "+0", "-1", "+3", "+2", "+4")
+# build the character sheet dataframe and display it
+labels <- c("Stat", "Modifier")
+STR <- c(10, "+0")
+DEX <- c(11, "+0")
+CON <- c(8, "-1")
+INT <- c(15, "+2")
+WIS <- c(13, "+2")
+CHA <- c(18, "+4")
 
-charsheet <- data.frame(Ability, Stat, Modifier)
+charsheet <- data.frame(labels, STR, DEX, CON, INT, WIS, CHA) %>% 
+  rename(" " = labels)
 
-kable(charsheet)
+kable(charsheet) %>% 
+  kable_styling() %>% 
+  column_spec(1, bold=T)
 
 ```
 
+## Other Stats
+
+**Hit points**: 42
+
+- Number of hit dice: 6
+
+**Inspiration**: [blank]
+
+**Proficiency bonus**: +3
+
+- Double proficiency bonus if performing a CHA check with dragons
+
+**Perception check**: d20 + WIS modifier
+
+**Initiative**: d20 + DEX modifier
+
+**Saving throws**: CON, CHA
+
+**Armor class**: 13 without armor (dragon scales)
+
+- Dodge: DEX modifier + armor deflect
+
+## Skills
+- Religion [INT]
+- Persuasion [CHA]
+- Investigation [INT]
+- Insight [WIS]
+
+### Languages
+Fluent in Common, Halfling, Draconic languages
+
+### Weapon and tool proficiencies
+- Daggers, darts, slings, quarterstaffs, light crossbows
+- Navigator's tools, calligrapher's supplies
+
+## Halfling Traits
+- **Speed**: 25 feet base walking speed
+- **Size**: ~ 3 feet tall, 40 lbs; size Small
+- **Lucky**: When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll
+- **Brave**: Advantage on saving throws against being frightened
+- **Halfling Nimbleness**: Can move through the space of any creature that is of a size larger than yours
+
+# Spells
+
+## Cantrips
 
