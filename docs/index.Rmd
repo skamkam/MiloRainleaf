@@ -362,7 +362,7 @@ When you cast a spell that has a range of touch, you can spend 1 sorcery point t
 
 #### Food/Medicine
 
-- 10 new bread rolls
+- 9 new bread rolls
 - Huge bottle of fantasy tropicana orange juice
 - little bottle of painkiller elixir
 
@@ -410,7 +410,7 @@ The campaign starts near the end of Milo's contract, when she's 24. She has not 
 
 ```{r}
 r1 <- c("Age", "Race", "Class", "Role", "Status")
-r2 <- c("16", "Elf", "Cleric", "High Priestess (Oracle)", "Friend")
+r2 <- c("160 (teen)", "Elf", "Cleric", "High Priestess (Oracle)", "Friend")
 kable(data.frame(r1, r2), col.names=NULL) %>% 
   kable_styling() %>% 
   column_spec(1, bold=T)
@@ -438,7 +438,7 @@ Good fellow. Doesn't talk much, but would definitely have Milo's back.
 
 ```{r}
 r1 <- c("Age", "Race", "Class", "Role", "Status")
-r2 <- c("Dad", "Elf", "??? Has a demon. Sucks blood", "Bodyguard", "Colleague")
+r2 <- c("Dad (300)", "Elf", "??? Has a demon. Sucks blood", "Bodyguard", "Colleague")
 kable(data.frame(r1, r2), col.names=NULL) %>% 
   kable_styling() %>% 
   column_spec(1, bold=T)
@@ -464,13 +464,27 @@ He's just a little guy. Milo thinks he's a little too trusting but likes having 
 
 **Furgle**: Beloved goat. Eats Milo's bread rolls.
 
+### Fea
+
+![](art/fea.jpg){height=3in}
+
+```{r}
+r1 <- c("Age", "Race", "Class", "Role", "Status")
+r2 <- c("??", "Fae", "??", "Guide while in fae wild", "Colleague")
+kable(data.frame(r1, r2), col.names=NULL) %>% 
+  kable_styling() %>% 
+  column_spec(1, bold=T)
+```
+
+Milo is suspicious of her mostly because they have been told many times not to trust fey. However, she did get them out of the fae wild mostly successfully, and she drank their orange juice, so she might be pretty ok after all.
+
 ### Atticus
 
 ![](art/atticus.jpg){height=3in}
 
 ```{r}
 r1 <- c("Age", "Race", "Class", "Role", "Status")
-r2 <- c("17", "Teen boy", "??", "King of the Southern Isles", "Higher-up")
+r2 <- c("17", "Human", "??", "King of the Southern Isles", "Higher-up")
 kable(data.frame(r1, r2), col.names=NULL) %>% 
   kable_styling() %>% 
   column_spec(1, bold=T)
